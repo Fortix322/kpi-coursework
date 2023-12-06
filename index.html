@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <title>Linear Equations Solver</title>
+</head>
+<body>
+    
+    <div id="main-content" class="d-flex w-100 flex-column align-items-center">
+
+        <div id="main-text">
+            <h1>Linear Equations Solver</h1>
+        </div>
+
+        <div id="main-frame" class="rounded-5">
+
+            <div id="frame-header" class="d-flex w-100 flex-column align-items-center">
+                <button type="button" id="instruction-button" class="btn popover-dismiss align-self-start" 
+                title="How it Works?" data-bs-toggle="popover">?</button>
+
+                <select id="dimension-select" class="text-center rounded-5">
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+
+            </div>
+           
+            <form id="main-form" class="d-flex flex-column align-items-center mt-2" novalidate>
+
+                <div id="main-form-content" class="d-flex justify-content-center align-items-center">
+                    <section id="input-section" class="rounded-5"></section> <!-- Main Input Group Section -->
+                    <!--<section id="output-section" class="rounded-5" hidden></section> !-->
+                </div>
+
+                <div id="form-footer" class="d-flex flex-column align-items-center">
+                    <section id="result-section" class="rounded-5 mb-3">
+                        <p id="result-text"></p>
+                    </section>
+    
+                    <button type="submit" id="submit-button" class="btn rounded-5 mb-3">Solve</button>
+                </div>
+
+            </form>
+
+            <div id="slider-wrapper" class="d-flex justify-content-end">
+                <div id="slider" class="d-flex flex-row-reverse">
+                    <h2>Tools</h2>
+                    <div id="slider-button-group" class="d-flex justify-content-around align-items-center text-center w-100">
+                        <div>
+                            Clear
+                            <button type="button" id="slider-button" class="btn" 
+                                title="Clear matrix" onclick="clearMatrix()"><span class="bi bi-eraser"></span></button>
+                        </div>
+                        <div>
+                            Random
+                            <button type="button" id="slider-button" class="btn" 
+                            title="Random matrix" onclick="randomMatrix()"><span class="bi bi-dice-3"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- Main Frame -->
+    </div> <!-- Main Content -->
+
+    <!--
+    <div id="slider-wrapper" class="d-flex justify-content-end">
+        <div id="slider" class="d-flex">
+            <h2>Tools</h2>
+            <div id="slider-button-group" class="d-flex justify-content-around align-items-center text-center w-100">
+                <div>
+                    Clear
+                    <button type="button" id="slider-button" class="btn" 
+                        title="Clear matrix">?</button>
+                </div>
+                <div>
+                    Random
+                    <button type="button" id="slider-button" class="btn" 
+                    title="Randomize free numbers">?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    !-->
+
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/gaussianElimination.js"></script>
+    <script src="./js/script.js"></script>
+    
+    <script>
+        
+    </script>
+
+</body>
+</html>
