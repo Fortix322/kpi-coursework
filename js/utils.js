@@ -1,19 +1,27 @@
 'use strict'
 
-const instructionText = "Placeholder text" +
-    " placeholder text";
+const instructionText = "-Firstly, chose amount of equations in your system<br>" +
+    "<img src='./res/dimension.png'/><br>" +
+    "-Input numerical values of coefficients of variables, leave input box empty if variable has coefficient 0<br>" +
+    "<img src='./res/input.png'/><br>" +
+    "-Also, you can clear or fill input boxes with random values, using tools section<br>" + 
+    "<img src='./res/tools.png'/> " +
+    "<img src='./res/clear.png'/> " +
+    "<img src='./res/random.png'/><br>" +
+    "-When input boxes filled with values(Keep in mind: unfiled boxes will be automatically filled with 0)<br>" + 
+    "Submit values and start calculating by pressing submition button(Big one with 'Submit' text on it)<br>" + 
+    "<img src='./res/submission.png'/><br>" +
+    "-In output box you can see calculations result, or unconsisted system error message<br>" + 
+    "<img src='./res/output.png'/><br>" +
+    "-Enjoy! :)"; 
 
 const popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
-    trigger: 'focus'
+    trigger: 'focus',
+    html : true,
+    content: instructionText
 });
 
-(function setInstructionButtonText()
-{
-    let instructionButton = document.getElementById("instruction-button");
-    instructionButton.setAttribute("data-bs-content", instructionText);
-}());
-
-function createEquationInput(dimension)
+function createInputLayout(dimension)
 {
     var equationInputContainer = document.createElement("div");
     equationInputContainer.classList.add("equation-input-group");

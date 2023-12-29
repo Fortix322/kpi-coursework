@@ -1,37 +1,38 @@
 'use strict';
 
-(function setEquationInputLayout(){
+(function setInputLayout(){
 
     const dimensionSelect = document.getElementById("dimension-select");
     const inputSection = document.getElementById("input-section");
     const resultSection = document.getElementById("result-section");
     const equationsContainer = document.createElement("div");
 
-    setInputLayout();
+    applyInputLayout();
 
     dimensionSelect.addEventListener("change", () => {
         clearInputLayout();
-        setInputLayout();
+        applyInputLayout();
     });
 
     function clearInputLayout()
     {
+        resultSection.children[0].innerHTML = "";
+
         while(equationsContainer.firstChild){
-            resultSection.children[0].innerHTML = "";
             equationsContainer.removeChild(equationsContainer.firstChild);
         }
     }
 
-    function setInputLayout()
+    function applyInputLayout()
     {
         let selectedOption = dimensionSelect.item(dimensionSelect.selectedIndex);
-        equationsContainer.appendChild(createEquationInput(selectedOption.value));
+        equationsContainer.appendChild(createInputLayout(selectedOption.value));
         inputSection.appendChild(equationsContainer);
     }
 
 })();
 
-(function ()
+(function submitCallback()
 {
     const form = document.getElementById("main-form");
     const button = document.getElementById("submit-button");
@@ -46,9 +47,6 @@
 
         let mat = parseEquationsInput();
         resultSection.children[0].innerHTML = gaussianElimination(mat, mat[0].length - 1);
-        //calculated = calculated ? false : true;
-        //button.innerHTML = calculated ? "Back" : "Solve";
-        //resultSection.children[0].innerHTML = calculated ? gaussianElimination(mat, mat[0].length - 1) : ""; // #result-text
     });
 
 })();
@@ -82,7 +80,7 @@ function parseEquationsInput()
     return mat;
 }
 
-function clearMatrix()
+function clearInput()
 {
     const equationsContainer = document.getElementsByClassName("equation-input-group")[0];
     const resultSection = document.getElementById("result-section");
@@ -100,9 +98,9 @@ function clearMatrix()
     }
 }
 
-function randomMatrix()
+function randomInput()
 {
-    clearMatrix();
+    clearInput();
 
     const equationsContainer = document.getElementsByClassName("equation-input-group")[0];
 

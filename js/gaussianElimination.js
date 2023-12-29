@@ -1,4 +1,3 @@
-var log = "";
 
 function gaussianElimination(mat, dimension)
 {
